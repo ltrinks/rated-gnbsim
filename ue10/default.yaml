@@ -11,6 +11,7 @@ info:
 
 configuration:
   runConfigProfilesAtStart: true
+  pauseAtStart: true
   singleInterface: false			# Default value
   execInParallel: true				# Run all profiles in parallel
   httpServer:					# API to manage profiles at runtime

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-export TIME=$(date +"%Y_%m_%d.%H_%M_%S_%N")
-export TIME=${TIME// /_}
-mkdir logs/$TIME
-cd logs/$TIME
+mkdir logs/$1
+cd logs/$1
 
-../../../gnbsim/gnbsim --cfg ../../default.yaml &>/dev/null
+../../../gnbsimwithchanges/gnbsim --cfg ../../default.yaml 2>/dev/null | grep E2E | awk 'BEGIN { FS="," } /1/ { print $7 }' > latencies.txt
